@@ -8,7 +8,6 @@ namespace Primer_Parcial
         {
 
             Menu menu = new Menu();
-
             menu.MenuPrincipal();
 
         }
