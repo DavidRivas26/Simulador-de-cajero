@@ -7,6 +7,12 @@ namespace Primer_Parcial
     public class Menu
     {
 
+        public int operacion = 3;
+        public static int monto;
+
+        IPolimorfismo1 polimorfismo;
+        IPolimorfismo2 polimorfismo2;
+
         public void MenuPrincipal()
         {
 
@@ -30,7 +36,41 @@ namespace Primer_Parcial
 
                     case (int)Menu1.retirar:
 
+                        string continuar;
 
+                        do
+                        {
+
+                            Console.Write("\nIngrese la cantidad que desea retirar: ");
+                            monto = int.Parse(Console.ReadLine());
+
+                            if (operacion == 3)
+                            {
+
+                                polimorfismo2 = new Eficiente(monto);
+
+                            }
+
+                            if (operacion == 2)
+                            {
+
+                                polimorfismo = new _100y500 (monto);
+
+                            }
+
+                            if (operacion == 1)
+                            {
+
+                                polimorfismo = new _200y1000 (monto);
+
+                            }
+
+                            Console.Write("\n¿Desea seguir retirar mas? (S/N): ");
+                            continuar = Console.ReadLine();
+
+                        } while (continuar == "S");
+
+                        MenuPrincipal();
 
                         break;
 
@@ -84,19 +124,34 @@ namespace Primer_Parcial
 
                     case (int)Menu2.no_eficiente200y1000:
 
-
+                        operacion = 1;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("\nUsted selecciono el modo 200 y 100");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        MenuPrincipal();
 
                         break;
 
                     case (int)Menu2.no_eficiente100y500:
 
-
+                        operacion = 2;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("\nUsted selecciono el modo 100 y 500");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        MenuPrincipal();
 
                         break;
 
                     case (int)Menu2.eficiente:
 
-
+                        operacion = 3;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("\nUsted selecciono el modo eficiente");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        MenuPrincipal();
 
                         break;
 
